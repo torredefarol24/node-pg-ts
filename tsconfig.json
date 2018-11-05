@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "pretty": true,
+    "sourceMap": true,
+    "target": "es6",
+    "outDir": "dist",
+    "rootDir": "src",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "lib": [
+    "es2015"
+  ]
+}
