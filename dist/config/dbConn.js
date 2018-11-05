@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const User_1 = require("../models/User");
 let DBVars = {
-    name: "pgdb-conn",
     type: "postgres",
     host: "localhost",
     port: 5432,
