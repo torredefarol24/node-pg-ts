@@ -7,5 +7,7 @@ userRouter.get("/", userController_1.default.getAll);
 userRouter.post("/", userController_1.default.createUser);
 userRouter.get("/:id", userController_1.default.getSingleUser);
 userRouter.patch("/:id", userController_1.default.editUser);
+userRouter.patch("/:id/profile", userController_1.default.editUserProfile);
+userRouter.delete("/:id", userController_1.default.deleteUser);
 exports.default = userRouter;
 //# sourceMappingURL=userRoutes.js.map

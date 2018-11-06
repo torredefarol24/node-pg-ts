@@ -10,32 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const Profile_1 = require("./Profile");
-let User = class User {
+let Pet = class Pet {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], User.prototype, "id", void 0);
+], Pet.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: false }),
+    typeorm_1.Column(),
     __metadata("design:type", String)
-], User.prototype, "firstName", void 0);
+], Pet.prototype, "color", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: false }),
-    __metadata("design:type", String)
-], User.prototype, "lastName", void 0);
-__decorate([
-    typeorm_1.Column({ unique: true, nullable: false }),
-    __metadata("design:type", String)
-], User.prototype, "email", void 0);
-__decorate([
-    typeorm_1.OneToOne(type => Profile_1.Profile, { eager: true }),
-    typeorm_1.JoinColumn(),
-    __metadata("design:type", Profile_1.Profile)
-], User.prototype, "profile", void 0);
-User = __decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Pet.prototype, "age", void 0);
+Pet = __decorate([
     typeorm_1.Entity()
-], User);
-exports.User = User;
-//# sourceMappingURL=User.js.map
+], Pet);
+exports.Pet = Pet;
+//# sourceMappingURL=Pet.js.map

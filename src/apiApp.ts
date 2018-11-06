@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser";
 import {createConnection, getConnectionManager} from "typeorm";
 import DBVars from './config/dbConn';
 import userRouter from "./routes/userRoutes";
+import profileRouter from './routes/profileRoutes';
 
 class SequelizeExampleApiApp {
   constructor(){
@@ -20,7 +21,8 @@ class SequelizeExampleApiApp {
   }
 
   private routerConfig(): void {
-    this.apiApp.use("/api/users/", userRouter)
+    this.apiApp.use("/api/users", userRouter);
+    this.apiApp.use("/api/profiles", profileRouter);
   }
 
   private async pgDbConfig(): Promise <void>{

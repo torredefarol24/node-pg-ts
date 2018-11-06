@@ -13,6 +13,7 @@ const bodyParser = require("body-parser");
 const typeorm_1 = require("typeorm");
 const dbConn_1 = require("./config/dbConn");
 const userRoutes_1 = require("./routes/userRoutes");
+const profileRoutes_1 = require("./routes/profileRoutes");
 class SequelizeExampleApiApp {
     constructor() {
         this.apiApp = express();
@@ -25,7 +26,8 @@ class SequelizeExampleApiApp {
         this.apiApp.use(bodyParser.urlencoded({ extended: false }));
     }
     routerConfig() {
-        this.apiApp.use("/api/users/", userRoutes_1.default);
+        this.apiApp.use("/api/users", userRoutes_1.default);
+        this.apiApp.use("/api/profiles", profileRoutes_1.default);
     }
     pgDbConfig() {
         return __awaiter(this, void 0, void 0, function* () {
