@@ -1,3 +1,4 @@
 src/keys/*
 dist/keys/*
 node_modules
+.env

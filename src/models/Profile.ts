@@ -2,7 +2,7 @@ import {Entity, PrimaryGeneratedColumn, Column, OneToOne} from "typeorm";
 import {User} from "./User";
 
 @Entity()
-export class Profile {
+export class Profile{
 
   @PrimaryGeneratedColumn()
   id: number;

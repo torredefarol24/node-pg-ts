@@ -6,7 +6,7 @@
     "sourceMap": true,
     "target": "es6",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir" : "./src",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
   },
