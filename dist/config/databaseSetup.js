@@ -8,30 +8,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Pet_1 = require("../../models/Pet");
+const dbConn_1 = require("../keys/dbConn");
 const typeorm_1 = require("typeorm");
-let getAll = function (request, response) {
+let databaseSetup = function () {
     return __awaiter(this, void 0, void 0, function* () {
-        const Pets = typeorm_1.getRepository(Pet_1.Pet);
-        const petFindOptions = {
-            relations: ["owner", "talents"]
-        };
-        const pets = yield Pets.find(petFindOptions);
-        var context = {
-            pets: null
-        };
-        if (pets.length > 0) {
-            context.pets = pets;
-            context.message = "Fetched Pets from DB";
-            context.success = true;
-            return response.status(200).json(context);
+        let pgDbConfigOptions = dbConn_1.default;
+        yield typeorm_1.createConnection(pgDbConfigOptions);
+        let dbConnSuccess = typeorm_1.getConnectionManager().get(pgDbConfigOptions.name).isConnected;
+        if (dbConnSuccess == true) {
+            console.log("DB CONNECTION SUCCESSFULL");
         }
         else {
-            context.message = "There are no Pets in DB";
-            context.success = false;
-            return response.status(200).json(context);
+            console.error("DB CONNECTION FAILED");
         }
     });
 };
-exports.default = getAll;
-//# sourceMappingURL=getAll.js.map
+exports.default = databaseSetup;
+//# sourceMappingURL=databaseSetup.js.map

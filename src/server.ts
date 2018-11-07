@@ -1,5 +1,5 @@
 import apiApp from './apiApp';
-import appVars from './config/appVars';
+import appVars from './keys/appVars';
 
 let apiCallBack = function(){
   console.log("API Served on port ", appVars.API_PORT)

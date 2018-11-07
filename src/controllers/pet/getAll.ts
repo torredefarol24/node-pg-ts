@@ -5,7 +5,7 @@ import {getRepository} from 'typeorm';
 let getAll = async function(request : Request , response : Response){
   const Pets = getRepository(Pet);
   const petFindOptions = {
-    relations: ["owner"]  
+    relations: ["owner", "talents"]  
   }
   const pets = await Pets.find(petFindOptions);
 

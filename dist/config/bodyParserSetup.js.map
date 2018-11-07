@@ -1,0 +1,1 @@
+{"version":3,"file":"bodyParserSetup.js","sourceRoot":"","sources":["../../src/config/bodyParserSetup.ts"],"names":[],"mappings":";;AAAA,0CAA0C;AAE1C,IAAI,eAAe,GAAG,UAAS,WAAW;IACxC,WAAW,CAAC,GAAG,CAAC,UAAU,CAAC,IAAI,EAAE,CAAC,CAAA;IAClC,WAAW,CAAC,GAAG,CAAC,UAAU,CAAC,UAAU,CAAC,EAAE,QAAQ,EAAG,KAAK,EAAC,CAAC,CAAC,CAAA;AAC7D,CAAC,CAAA;AAED,kBAAe,eAAe,CAAA"}

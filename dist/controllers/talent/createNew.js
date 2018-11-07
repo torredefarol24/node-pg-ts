@@ -8,30 +8,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Pet_1 = require("../../models/Pet");
+const Talent_1 = require("../../models/Talent");
 const typeorm_1 = require("typeorm");
-let getAll = function (request, response) {
+let createTalent = function (request, response) {
     return __awaiter(this, void 0, void 0, function* () {
-        const Pets = typeorm_1.getRepository(Pet_1.Pet);
-        const petFindOptions = {
-            relations: ["owner", "talents"]
-        };
-        const pets = yield Pets.find(petFindOptions);
-        var context = {
-            pets: null
-        };
-        if (pets.length > 0) {
-            context.pets = pets;
-            context.message = "Fetched Pets from DB";
-            context.success = true;
-            return response.status(200).json(context);
+        const Talents = typeorm_1.getRepository(Talent_1.Talent);
+        var context = {};
+        if (!request.body.name) {
+            context.message = "Request Body Keys Missing";
+            return response.status(404).json(context);
         }
-        else {
-            context.message = "There are no Pets in DB";
+        const talent = {
+            name: request.body.name.trim()
+        };
+        try {
+            let result = yield Talents.save(talent);
+            context.talent = result;
+            context.message = "Talent Created";
+            context.success = true;
+            return response.status(201).json(context);
+        }
+        catch (error) {
             context.success = false;
-            return response.status(200).json(context);
+            context.message = error;
+            return response.status(404).json(context);
         }
     });
 };
-exports.default = getAll;
-//# sourceMappingURL=getAll.js.map
+exports.default = createTalent;
+//# sourceMappingURL=createNew.js.map

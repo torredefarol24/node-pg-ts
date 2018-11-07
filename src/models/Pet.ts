@@ -1,5 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable} from "typeorm";
 import { User } from './User';
+import { Talent } from './Talent';
 
 @Entity()
 export class Pet{
@@ -18,4 +19,8 @@ export class Pet{
 
   @ManyToOne(type => User, owner => owner.pets, {cascade : true})
   owner: User
+
+  @ManyToMany(type => Talent, talent => talent.pets)
+  @JoinTable()
+  talents : Talent[]
 }

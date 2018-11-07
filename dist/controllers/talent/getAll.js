@@ -8,30 +8,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Pet_1 = require("../../models/Pet");
+const Talent_1 = require("../../models/Talent");
 const typeorm_1 = require("typeorm");
-let getAll = function (request, response) {
+let getAllTalents = function (request, response) {
     return __awaiter(this, void 0, void 0, function* () {
-        const Pets = typeorm_1.getRepository(Pet_1.Pet);
-        const petFindOptions = {
-            relations: ["owner", "talents"]
+        const Talents = typeorm_1.getRepository(Talent_1.Talent);
+        const talentFindOptions = {
+            relations: ["pets"]
         };
-        const pets = yield Pets.find(petFindOptions);
+        const talents = yield Talents.find(talentFindOptions);
         var context = {
-            pets: null
+            talents: null
         };
-        if (pets.length > 0) {
-            context.pets = pets;
-            context.message = "Fetched Pets from DB";
+        if (talents.length > 0) {
+            context.talents = talents;
+            context.message = "Fetched Talents from DB";
             context.success = true;
             return response.status(200).json(context);
         }
         else {
-            context.message = "There are no Pets in DB";
+            context.message = "There are no Talents in DB";
             context.success = false;
             return response.status(200).json(context);
         }
     });
 };
-exports.default = getAll;
+exports.default = getAllTalents;
 //# sourceMappingURL=getAll.js.map

@@ -10,37 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const User_1 = require("./User");
-const Talent_1 = require("./Talent");
-let Pet = class Pet {
+const Pet_1 = require("./Pet");
+let Talent = class Talent {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Pet.prototype, "id", void 0);
-__decorate([
-    typeorm_1.Column({ nullable: false }),
-    __metadata("design:type", String)
-], Pet.prototype, "nickname", void 0);
+], Talent.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Pet.prototype, "color", void 0);
+], Talent.prototype, "name", void 0);
 __decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", Number)
-], Pet.prototype, "age", void 0);
-__decorate([
-    typeorm_1.ManyToOne(type => User_1.User, owner => owner.pets, { cascade: true }),
-    __metadata("design:type", User_1.User)
-], Pet.prototype, "owner", void 0);
-__decorate([
-    typeorm_1.ManyToMany(type => Talent_1.Talent, talent => talent.pets),
-    typeorm_1.JoinTable(),
+    typeorm_1.ManyToMany(type => Pet_1.Pet, pet => pet.talents),
     __metadata("design:type", Array)
-], Pet.prototype, "talents", void 0);
-Pet = __decorate([
+], Talent.prototype, "pets", void 0);
+Talent = __decorate([
     typeorm_1.Entity()
-], Pet);
-exports.Pet = Pet;
-//# sourceMappingURL=Pet.js.map
+], Talent);
+exports.Talent = Talent;
+//# sourceMappingURL=Talent.js.map

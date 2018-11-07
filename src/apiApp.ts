@@ -1,10 +1,8 @@
 import * as express from "express";
-import * as bodyParser from "body-parser";
-import {createConnection, getConnectionManager} from "typeorm";
-import DBVars from './config/dbConn';
-import userRouter from "./routes/userRoutes";
-import profileRouter from './routes/profileRoutes';
-import petRouter from './routes/petRoutes';
+
+import routerSetup from './config/routeSetup';
+import bodyParserSetup from './config/bodyParserSetup';
+import databaseSetup from './config/databaseSetup';
 
 class TSTypeORMExampleApiApp {
   constructor(){
@@ -17,26 +15,15 @@ class TSTypeORMExampleApiApp {
   public apiApp : express.Application;
 
   private bodyParserConfig() : void {
-    this.apiApp.use(bodyParser.json())
-    this.apiApp.use(bodyParser.urlencoded({ extended : false}))
+    bodyParserSetup(this.apiApp);
   }
 
   private routerConfig(): void {
-    this.apiApp.use("/api/users", userRouter);
-    this.apiApp.use("/api/profiles", profileRouter);
-    this.apiApp.use("/api/pets", petRouter);
+    routerSetup(this.apiApp);
   }
 
-  private async pgDbConfig(): Promise <void>{
-    let pgDbConfigOptions: any = DBVars;
-    await createConnection(pgDbConfigOptions);
-    let dbConnSuccess = getConnectionManager().get(pgDbConfigOptions.name).isConnected;
-
-    if (dbConnSuccess == true){
-      console.log("DB CONNECTION SUCCESSFULL");
-    } else {
-      console.error("DB CONNECTION FAILED")
-    }
+  private pgDbConfig():void{
+    databaseSetup();
   }
 }
 
