@@ -22,7 +22,7 @@ let patchUserById = function (request, response) {
             context.success = false;
             return response.status(404).json(context);
         }
-        if (!request.body.firstName || !request.body.lastName) {
+        if (!request.body.firstName || !request.body.lastName || !request.body.address) {
             context.message = " Request Body Keys missing";
             context.success = false;
             return response.status(404).json(context);
@@ -31,7 +31,8 @@ let patchUserById = function (request, response) {
         if (user) {
             let userParams = {
                 firstName: request.body.firstName.trim(),
-                lastName: request.body.lastName.trim()
+                lastName: request.body.lastName.trim(),
+                address: request.body.address.trim()
             };
             yield Users.createQueryBuilder().update(User_1.User)
                 .set(userParams)

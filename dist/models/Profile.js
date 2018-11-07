@@ -26,6 +26,10 @@ __decorate([
     __metadata("design:type", String)
 ], Profile.prototype, "username", void 0);
 __decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Profile.prototype, "bio", void 0);
+__decorate([
     typeorm_1.OneToOne(type => User_1.User, user => user.profile),
     __metadata("design:type", User_1.User)
 ], Profile.prototype, "user", void 0);

@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {Profile} from '../../models/Profile';
-import { getRepository} from "typeorm";
+import {getRepository} from "typeorm";
 
 let editProfileById = async function(request : Request, response : Response){
   const Profiles = getRepository(Profile);  
@@ -17,7 +17,7 @@ let editProfileById = async function(request : Request, response : Response){
     return response.status(404).json(context);
   }
   
-  if (!request.body.gender || !request.body.username){
+  if (!request.body.gender || !request.body.username || !request.body.bio){
     context.message = "Request Body Keys Missing";
     context.success = false;
     return response.status(404).json(context);
@@ -29,7 +29,8 @@ let editProfileById = async function(request : Request, response : Response){
 
     let profileParams: any = {
       gender: request.body.gender.trim(), 
-      username: request.body.username.trim()
+      username: request.body.username.trim(),
+      bio : request.body.bio.trim()
     }
 
     await Profiles.createQueryBuilder().update(Profile)

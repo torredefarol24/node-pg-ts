@@ -1,1 +1,0 @@
-{"version":3,"file":"profileController.js","sourceRoot":"","sources":["../../src/controllers/profileController.ts"],"names":[],"mappings":";;AAAA,6CAA8C;AAC9C,mDAAgD;AAChD,+CAA8C;AAC9C,iDAAiD;AACjD,qDAAqD;AAErD,IAAI,iBAAiB,GAAG;IACtB,MAAM,EAAG,gBAAc;IACvB,gBAAgB,EAAG,mBAAa;IAChC,gBAAgB,EAAG,iBAAc;IACjC,WAAW,EAAG,kBAAe;IAC7B,aAAa,EAAG,oBAAiB;CAClC,CAAA;AAED,kBAAe,iBAAiB,CAAA"}

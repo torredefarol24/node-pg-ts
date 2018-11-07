@@ -7,7 +7,7 @@ let createProfile = async function(request : Request, response : Response){
 
   var context: any = {}
 
-  if (!request.body.gender || !request.body.username){
+  if (!request.body.gender || !request.body.username || !request.body.bio){
     context.message = "Request Body Keys Missing";
     return response.status(404).json(context);
   }
@@ -15,6 +15,7 @@ let createProfile = async function(request : Request, response : Response){
   const profile : any = {
     gender : request.body.gender.trim(),
     username : request.body.username.trim(),
+    bio : request.body.bio.trim()
   }
 
   try {

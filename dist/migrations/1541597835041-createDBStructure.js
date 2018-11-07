@@ -8,11 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class InitializeDbStructure1541596103280 {
+class createDBStructure1541597835041 {
     up(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield queryRunner.query(`CREATE TABLE "profile" ("id" SERIAL NOT NULL, "gender" character varying NOT NULL, "username" character varying NOT NULL, CONSTRAINT "UQ_d80b94dc62f7467403009d88062" UNIQUE ("username"), CONSTRAINT "PK_3dd8bfc97e4a77c70971591bdcb" PRIMARY KEY ("id"))`);
-            yield queryRunner.query(`CREATE TABLE "user" ("id" SERIAL NOT NULL, "firstName" character varying NOT NULL, "lastName" character varying NOT NULL, "email" character varying NOT NULL, "profileId" integer, CONSTRAINT "UQ_e12875dfb3b1d92d7d7c5377e22" UNIQUE ("email"), CONSTRAINT "REL_9466682df91534dd95e4dbaa61" UNIQUE ("profileId"), CONSTRAINT "PK_cace4a159ff9f2512dd42373760" PRIMARY KEY ("id"))`);
+            yield queryRunner.query(`CREATE TABLE "profile" ("id" SERIAL NOT NULL, "gender" character varying NOT NULL, "username" character varying NOT NULL, "bio" character varying NOT NULL, CONSTRAINT "UQ_d80b94dc62f7467403009d88062" UNIQUE ("username"), CONSTRAINT "PK_3dd8bfc97e4a77c70971591bdcb" PRIMARY KEY ("id"))`);
+            yield queryRunner.query(`CREATE TABLE "user" ("id" SERIAL NOT NULL, "firstName" character varying NOT NULL, "lastName" character varying NOT NULL, "address" character varying NOT NULL, "email" character varying NOT NULL, "profileId" integer, CONSTRAINT "UQ_e12875dfb3b1d92d7d7c5377e22" UNIQUE ("email"), CONSTRAINT "REL_9466682df91534dd95e4dbaa61" UNIQUE ("profileId"), CONSTRAINT "PK_cace4a159ff9f2512dd42373760" PRIMARY KEY ("id"))`);
             yield queryRunner.query(`CREATE TABLE "talent" ("id" SERIAL NOT NULL, "name" character varying NOT NULL, CONSTRAINT "PK_bb69d9cea50aa835af369a4c2b8" PRIMARY KEY ("id"))`);
             yield queryRunner.query(`CREATE TABLE "pet" ("id" SERIAL NOT NULL, "nickname" character varying NOT NULL, "color" character varying NOT NULL, "age" integer NOT NULL, "ownerId" integer, CONSTRAINT "PK_b1ac2e88e89b9480e0c5b53fa60" PRIMARY KEY ("id"))`);
             yield queryRunner.query(`CREATE TABLE "pet_talents_talent" ("petId" integer NOT NULL, "talentId" integer NOT NULL, CONSTRAINT "PK_3e2e22e31e51641359d6b61798d" PRIMARY KEY ("petId", "talentId"))`);
@@ -36,5 +36,5 @@ class InitializeDbStructure1541596103280 {
         });
     }
 }
-exports.InitializeDbStructure1541596103280 = InitializeDbStructure1541596103280;
-//# sourceMappingURL=1541596103280-InitializeDbStructure.js.map
+exports.createDBStructure1541597835041 = createDBStructure1541597835041;
+//# sourceMappingURL=1541597835041-createDBStructure.js.map

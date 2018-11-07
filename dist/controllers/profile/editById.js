@@ -22,7 +22,7 @@ let editProfileById = function (request, response) {
             context.success = false;
             return response.status(404).json(context);
         }
-        if (!request.body.gender || !request.body.username) {
+        if (!request.body.gender || !request.body.username || !request.body.bio) {
             context.message = "Request Body Keys Missing";
             context.success = false;
             return response.status(404).json(context);
@@ -31,7 +31,8 @@ let editProfileById = function (request, response) {
         if (profile) {
             let profileParams = {
                 gender: request.body.gender.trim(),
-                username: request.body.username.trim()
+                username: request.body.username.trim(),
+                bio: request.body.bio.trim()
             };
             yield Profiles.createQueryBuilder().update(Profile_1.Profile)
                 .set(profileParams)

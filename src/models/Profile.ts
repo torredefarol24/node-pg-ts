@@ -13,6 +13,9 @@ export class Profile{
   @Column({ unique : true , nullable : false})
   username: string;
 
+  @Column()
+  bio: string;
+
   @OneToOne(type => User, user => user.profile)
   user : User
 }

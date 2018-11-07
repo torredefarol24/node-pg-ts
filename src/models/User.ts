@@ -14,10 +14,13 @@ export class User{
   @Column({nullable : false})
   lastName: string;
 
+  @Column()
+  address: string;
+
   @Column({ unique : true , nullable : false})
   email: string;
 
-  @OneToOne(type => Profile, { cascade : true} )
+  @OneToOne(type => Profile, { cascade : true})
   @JoinColumn()
   profile : Profile
 

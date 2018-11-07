@@ -16,7 +16,7 @@ let createNewUser = function (request, response) {
         const context = {
             user: null
         };
-        if (!request.body.firstName || !request.body.lastName || !request.body.email) {
+        if (!request.body.firstName || !request.body.lastName || !request.body.email || !request.body.address) {
             context.message = "Request Body Keys Missing";
             context.success = false;
             return response.status(404).json(context);
@@ -24,7 +24,8 @@ let createNewUser = function (request, response) {
         const user = {
             firstName: request.body.firstName.trim(),
             lastName: request.body.lastName.trim(),
-            email: request.body.email.trim()
+            email: request.body.email.trim(),
+            address: request.body.address.trim()
         };
         try {
             yield Users.save(user);
