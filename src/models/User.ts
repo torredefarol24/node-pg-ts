@@ -1,5 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany} from "typeorm";
 import {Profile} from './Profile';
+import {Pet} from './Pet';
 
 @Entity()
 export class User{
@@ -16,8 +17,10 @@ export class User{
   @Column({ unique : true , nullable : false})
   email: string;
 
-  @OneToOne(type => Profile, { eager : true })
+  @OneToOne(type => Profile, { cascade : true} )
   @JoinColumn()
   profile : Profile
 
+  @OneToMany(type => Pet, pet => pet.owner)
+  pets : Pet[]
 }

@@ -14,7 +14,8 @@ const typeorm_1 = require("typeorm");
 const dbConn_1 = require("./config/dbConn");
 const userRoutes_1 = require("./routes/userRoutes");
 const profileRoutes_1 = require("./routes/profileRoutes");
-class SequelizeExampleApiApp {
+const petRoutes_1 = require("./routes/petRoutes");
+class TSTypeORMExampleApiApp {
     constructor() {
         this.apiApp = express();
         this.bodyParserConfig();
@@ -28,6 +29,7 @@ class SequelizeExampleApiApp {
     routerConfig() {
         this.apiApp.use("/api/users", userRoutes_1.default);
         this.apiApp.use("/api/profiles", profileRoutes_1.default);
+        this.apiApp.use("/api/pets", petRoutes_1.default);
     }
     pgDbConfig() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -43,6 +45,6 @@ class SequelizeExampleApiApp {
         });
     }
 }
-let appInstance = new SequelizeExampleApiApp();
+let appInstance = new TSTypeORMExampleApiApp();
 exports.default = appInstance.apiApp;
 //# sourceMappingURL=apiApp.js.map

@@ -1,5 +1,5 @@
 import { Router} from 'express';
-import ProfileController from '../controllers/profileController';
+import ProfileController from '../controllers/profile';
 
 let profileRouter = Router();
 

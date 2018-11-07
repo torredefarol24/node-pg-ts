@@ -4,8 +4,9 @@ import {createConnection, getConnectionManager} from "typeorm";
 import DBVars from './config/dbConn';
 import userRouter from "./routes/userRoutes";
 import profileRouter from './routes/profileRoutes';
+import petRouter from './routes/petRoutes';
 
-class SequelizeExampleApiApp {
+class TSTypeORMExampleApiApp {
   constructor(){
     this.apiApp = express()
     this.bodyParserConfig();
@@ -23,6 +24,7 @@ class SequelizeExampleApiApp {
   private routerConfig(): void {
     this.apiApp.use("/api/users", userRouter);
     this.apiApp.use("/api/profiles", profileRouter);
+    this.apiApp.use("/api/pets", petRouter);
   }
 
   private async pgDbConfig(): Promise <void>{
@@ -38,6 +40,6 @@ class SequelizeExampleApiApp {
   }
 }
 
-let appInstance = new SequelizeExampleApiApp()
+let appInstance = new TSTypeORMExampleApiApp()
 export default appInstance.apiApp;
 

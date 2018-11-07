@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const userController_1 = require("../controllers/userController");
+const user_1 = require("../controllers/user");
 let userRouter = express_1.Router();
-userRouter.get("/", userController_1.default.getAll);
-userRouter.post("/", userController_1.default.createUser);
-userRouter.get("/:id", userController_1.default.getSingleUser);
-userRouter.patch("/:id", userController_1.default.editUser);
-userRouter.patch("/:id/profile", userController_1.default.editUserProfile);
-userRouter.delete("/:id", userController_1.default.deleteUser);
+userRouter.get("/", user_1.default.getAll);
+userRouter.post("/", user_1.default.createUser);
+userRouter.get("/:id", user_1.default.getSingleUser);
+userRouter.patch("/:id", user_1.default.editUser);
+userRouter.patch("/:id/profile", user_1.default.editUserProfile);
+userRouter.delete("/:id", user_1.default.deleteUser);
+userRouter.get("/test/pets", user_1.default.createWithDummyPets);
 exports.default = userRouter;
 //# sourceMappingURL=userRoutes.js.map
