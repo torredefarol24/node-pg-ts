@@ -1,4 +1,4 @@
-src/keys/*
+src/keys/appKeys.ts
 dist/keys/*
 node_modules
 .env

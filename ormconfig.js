@@ -1,3 +1,4 @@
+
 module.exports = {  
   "type": process.env.DATABASE_DRIVER,
   "host": process.env.DATABASE_HOST,

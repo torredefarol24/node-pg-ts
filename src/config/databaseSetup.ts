@@ -1,4 +1,4 @@
-import DBVars from '../keys/dbConn';
+import DBVars from './dbConnection';
 import {createConnection, getConnectionManager} from "typeorm";
 
 let databaseSetup = async function() {

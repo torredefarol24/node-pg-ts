@@ -14,8 +14,11 @@
     "typeorm": "^0.2.8"
   },
   "scripts": {
-    "watch_ts": "tsc -w",
-    "watch_node": "nodemon ./dist/server.js"
+    "watch-ts": "tsc -w",
+    "watch-node": "nodemon ./dist/server.js",
+    "build-ts" : "tsc",
+    "start-app" : "node ./dist/server.js",
+    "production" : "yarn run build-ts && yarn run start-app"
   },
   "devDependencies": {
     "typescript": "^3.1.6"
