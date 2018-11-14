@@ -8,7 +8,7 @@ Check it out
 
 - Setup AppKeys - *for DB Connection*
 ```sh
-$ cd pgTsExample
+$ cd node-pg-ts
 $ touch src/keys/appKeys.ts
 ```
 - Update **appKeys.ts**
@@ -44,7 +44,7 @@ DATABASE_NAME=<YOUR_PGDB_NAME>
 
 - Install Package Dependencies
 ```sh
-$ cd pgTsEample
+$ cd node-pg-ts
 $ yarn install
 
 # Or, with npm
@@ -53,14 +53,14 @@ $ npm install
 
 - Run App in **DEV Mode**
 ```sh
-$ cd pgTsEample
+$ cd node-pg-ts
 $ yarn run watch-ts
 $ yarn run watch-node
 ```
 
 - Run App in **PRODUCTION Mode**
 ```sh
-$ cd pgTsEample
+$ cd node-pg-ts
 $ yarn run build-ts
 $ yarn run start-app
 ```
