@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "dist/server.js",
   "license": "MIT",
+  "private": true,
+  "author": "Toufiq (https://twitter.com/burningraven06)",
+  "description" : "Using Typescript to create A Node/Express Application with Postgres DB Connection. Including DB Relations & Migrations. ",
+  "keywords" : ["typescript","typeorm","node","nodejs","postgres","postgresql","pg","node-postgres","migrations","relational-databases","webpack","express"],
   "dependencies": {
     "@types/body-parser": "^1.17.0",
     "@types/express": "^4.16.0",
